@@ -1,12 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import "semantic-ui-css/semantic.min.css";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import React from "react";
+import { render } from "react-dom";
+import { StepList, Step } from "./stepper";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const PageTwo = () => (
+  <h2>We have a second page.</h2>
+)
+
+const PageThree = () => (
+  <h2>Page three is working.</h2>
+)
+
+const App = () => (
+  <StepList>
+    <Step>
+      <h1>Hello world on page one!</h1>
+    </Step>
+    <Step component={PageTwo} />
+    <Step component={PageThree} />
+  </StepList>
+);
+
+render(<App />, document.getElementById("root"));
